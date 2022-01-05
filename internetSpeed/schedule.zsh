@@ -5,5 +5,3 @@ python3 internetSpeed.py
 git add .
 git commit -m "scheduled speedtest `date`"
 git push
-
-
