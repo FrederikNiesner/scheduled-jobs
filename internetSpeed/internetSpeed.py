@@ -12,6 +12,7 @@ def get_new_speeds():
     # Get ping (miliseconds)
     print("Getting ping (miliseconds)")
     ping = speed_test.results.ping
+    ping = round(ping, 0)  # round ping
     print(ping)
     # Perform download and upload speed tests (bits per second)
     print("Perform download and upload speed tests ...")
