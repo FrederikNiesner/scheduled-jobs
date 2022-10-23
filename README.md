@@ -1,6 +1,11 @@
 # Repo to store any code related to automated and scheduled scripts
 
-Repo Structure and Content
+## Jobs status. 
+
+[![freds-job-scraper](https://github.com/FrederikNiesner/scheduled-jobs/actions/workflows/main.yml/badge.svg)](https://github.com/FrederikNiesner/scheduled-jobs/actions/workflows/main.yml)
+
+
+## Repo Structure and Content
 
 > Folder structure and projects contained in this repo.
 
