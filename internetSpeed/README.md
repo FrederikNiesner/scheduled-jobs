@@ -16,19 +16,34 @@ As a result of all that I needed to cancel video calls for work or had my SQL qu
 
 I scheduled this script on my Mac locally using mac OS Automator, zsh and python to have a record of upload / download / ping performance. I could use this records to argue with the internet provider helping me to get refunds for when performance was below - I think 60% - of their promise. After a couple of months I could use it to get out of the 24 months contract entirely. 
 
-## How it works. 
+## How. 
 
 Workflow: 
 
 1. I needed to measure the performance locally, so any service-side or vm implementations or alike would not work. I solved this creating an application in macOS ``Automator`` 
-2. The Automator app executes the python script on the command line using ``schedule.zsh`` and is **scheduled to run 3x a day** (morning / noon / evening), simply creating a repeating `iCal` event in my calendar.
-<img src="img/calendar.png"></img>
+2. The Automator app executes the python script on the command line using ``schedule.zsh`` <img src="img/automator.png"></img>
+   1. 
+3. The app is **scheduled to run 3 times a day** (morning / noon / evening), simply creating a repeating `iCal` event in my calendar. <img src="img/calendar.png"></img>
+4. Results are stored in the `internet_speeds_dataset.csv` dataset and uploaded to github immediately.
 
-1. Results are stored in the `internet_speeds_dataset.csv` and uploaded to github immediately
-2. 
 
-Tech Stack: 
+# Code
 
+**Shell Script** executing the python script and pushing a new commit to this github repo.
+
+```Shell
+export PATH=/usr/local/bin:$PATH
+cd Google\ Drive/Code/Repositories/scheduled-jobs/internetSpeed
+git pull
+python3 internetSpeed.py
+git add .
+git commit -m "scheduled speedtest `date`"
+git push
+```
+<br/>
+
+**Python Script** defining 2 functions. 
+First the `get_new_speeds()` function measures the current upload, download and ping performance using and stores and returns each of them in a variable. The second function `update_csv(internet_speeds)` stores the new data by updating the .csv file. 
 
 ```Python
 # https://github.com/sivel/speedtest-cli
@@ -95,3 +110,6 @@ new_speeds = get_new_speeds()
 update_csv(new_speeds)
 
 ```
+
+Tataaa! 🎉
+
