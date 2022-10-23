@@ -3,9 +3,9 @@ name: freds-job-scraper
 on:
   schedule:
     - cron: '0 12 * * *' # runs at 12:00 UTC everyday
-  push:
-    branches:
-      - main
+  # push:
+  #   branches:
+  #     - main
 
 jobs:
   build:
