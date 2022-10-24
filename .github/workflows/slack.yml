@@ -24,7 +24,7 @@ jobs:
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
         env:
-          SLACK_MESSAGE: ${{ steps.run_tests.outputs.stdout }} 
-          SLACK_TITLE: Slack-Title
+          SLACK_MESSAGE: 'Post Content :rocket: :rocket: :rocket: ${{ steps.run_tests.outputs.stdout }}'
+          SLACK_TITLE: Post Title
           SLACK_CHANNEL: jobs
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
