@@ -25,19 +25,6 @@ jobs:
           
       - name: execute py script # run sj-gobierno.py to get the latest data
         run: python jobs-scraper/apple/apple-scraper.py
-          
-      - name: commit files
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add -A
-          git commit -m "update data" -a
-          
-      - name: push changes
-        uses: ad-m/github-push-action@v0.6.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main  
 
       - name: Run diff tests
         uses: mathiasvr/command-output@v1
@@ -52,3 +39,16 @@ jobs:
           SLACK_TITLE: Post Title
           SLACK_CHANNEL: jobs
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+      - name: commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          git commit -m "update data" -a
+          
+      - name: push changes
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main  
