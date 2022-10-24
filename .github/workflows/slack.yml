@@ -18,13 +18,13 @@ jobs:
         
       - name: Run diff tests
         run: |
-          echo "csv-diff jobs-scraper/apple/Apple-Careers-All-cp.csv jobs-scraper/apple/Apple-Careers-All.csv --key=id" >> $GITHUB_OUTPUT
+          echo "csv-diff jobs-scraper/apple/Apple-Careers-All-cp.csv jobs-scraper/apple/Apple-Careers-All.csv --key=id
         id: run_tests
       
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
         env:
-          SLACK_MESSAGE: ${{join(steps.run_tests.outputs.*, '\n')}}
-          SLACK_TITLE: CI Test Suite
+          SLACK_MESSAGE: ${{ steps.run_tests.outputs.stdout }} 
+          SLACK_TITLE: Slack-Title
           SLACK_CHANNEL: jobs
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
