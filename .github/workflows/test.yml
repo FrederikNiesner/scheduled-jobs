@@ -26,7 +26,7 @@ jobs:
         uses: rtCamp/action-slack-notify@v2
         if: ${{ steps.run_tests.outputs.stdout }} != ""
         env:
-          SLACK_MESSAGE: '@here : ${{ steps.run_tests.outputs.stdout }}'
+          SLACK_MESSAGE: " @here : ${{ steps.run_tests.outputs.stdout }} "
           SLACK_TITLE: New Job Alert
           SLACK_CHANNEL: jobs
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
