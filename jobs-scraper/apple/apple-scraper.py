@@ -1,5 +1,5 @@
 # Apple Careers
-
+import os
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
@@ -25,11 +25,13 @@ def parse(jobs):
     for job in jobs:
         title = job.find('a').text
         link = 'https://jobs.apple.com' + str(job.a['href'])
+        id = str(job.a['id'])
         location = job.find('td', class_= 'table-col-2').text
         department = job.find('span', class_= 'table--advanced-search__role').text
         date_added = job.find('span', class_= 'table--advanced-search__date').text
 
         career = {
+            'id': id, 
             'title': title, 
             'department': department, 
             'location': location, 
@@ -40,9 +42,16 @@ def parse(jobs):
         careers_list.append(career)
 
 def output():
+    # copy to compare if new jobs came in (or old where dropped)
+    os.system('cp jobs-scraper/apple/Apple-Careers-All.csv jobs-scraper/apple/Apple-Careers-All-cp.csv')
+    
+    # new jobs data
     df = pd.DataFrame(careers_list)
     df.to_csv('jobs-scraper/apple/Apple-Careers-All.csv')
     print('Saved items to CSV file.')
+
+    # compare
+    
 
 x = 1 
 while True: 

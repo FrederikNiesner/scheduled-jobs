@@ -1,4 +1,5 @@
 ,id,title,department,location,date_added,link
+0,jotTitle_PIPE-114438037,DE-Operations Expert (m/f/d),Sales and Business Development,Various Locations within  Germany ,"Oct 24, 2022",https://jobs.apple.com/en-us/details/114438037/de-operations-expert-m-f-d?team=SLDEV
 1,jotTitle_PIPE-200308667,SOC Digital Design Intern,Hardware,Munich,"Oct 21, 2022",https://jobs.apple.com/en-us/details/200308667/soc-digital-design-intern?team=HRDWR
 2,jotTitle_PIPE-200289056,Analog Mixed Signal Design Verification Engineer,Hardware,Munich,"Oct 20, 2022",https://jobs.apple.com/en-us/details/200289056/analog-mixed-signal-design-verification-engineer?team=HRDWR
 3,jotTitle_PIPE-200433441,PMU Analog Mixed-Signal Design Verification Intern (m/f/d),Hardware,Nabern,"Oct 20, 2022",https://jobs.apple.com/en-us/details/200433441/pmu-analog-mixed-signal-design-verification-intern-m-f-d?team=HRDWR
@@ -74,4 +75,3 @@
 73,jotTitle_REQ-200360061,Software Engineer- Integration Secrecy,Software and Services,Munich,"Mar 24, 2022",https://jobs.apple.com/en-us/details/200360061/software-engineer-integration-secrecy?team=SFTWR
 74,jotTitle_PIPE-200355688,DFT Junior Engineer,Hardware,Munich,"Mar 11, 2022",https://jobs.apple.com/en-us/details/200355688/dft-junior-engineer?team=HRDWR
 75,jotTitle_REQ-200295022,"Client Partner Lead, Games",Sales and Business Development,Berlin,"Oct 6, 2021",https://jobs.apple.com/en-us/details/200295022/client-partner-lead-games?team=SLDEV
-76,jotTitle_PIPE-200224478,Cellular 5G/4G Layer1 Control Firmware Engineer (m/f/d),Hardware,Munich,"Feb 18, 2021",https://jobs.apple.com/en-us/details/200224478/cellular-5g-4g-layer1-control-firmware-engineer-m-f-d?team=HRDWR
