@@ -23,10 +23,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r jobs-scraper/apple/requirements.txt
           
-      - name: execute py script # run sj-gobierno.py to get the latest data
+      - name: execute py script # run apple-scraper.py to get the latest data
         run: python jobs-scraper/apple/apple-scraper.py
 
-      - name: Run diff tests
+      - name: Run diff tests # check if changes occurred
         uses: mathiasvr/command-output@v1
         id: run_tests
         with:
