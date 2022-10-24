@@ -34,6 +34,7 @@ jobs:
       
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
+        if: ${{ steps.run_tests.outputs.stdout }} != ""
         env:
           SLACK_MESSAGE: ${{ steps.run_tests.outputs.stdout }}
           SLACK_TITLE: Post Title
