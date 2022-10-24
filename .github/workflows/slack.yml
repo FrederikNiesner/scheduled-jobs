@@ -15,16 +15,17 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r jobs-scraper/apple/requirements.txt 
-        
+       
       - name: Run diff tests
-        run: |
-          csv-diff jobs-scraper/apple/Apple-Careers-All-cp.csv jobs-scraper/apple/Apple-Careers-All.csv --key=id
+        uses: mathiasvr/command-output@v1
         id: run_tests
+        with:
+          run: csv-diff jobs-scraper/apple/Apple-Careers-All-cp.csv jobs-scraper/apple/Apple-Careers-All.csv --key=id
       
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
         env:
-          SLACK_MESSAGE: 'Post Content :rocket: :rocket: :rocket: ${{ steps.run_tests.outputs.stdout }}'
+          SLACK_MESSAGE: ${{ steps.run_tests.outputs.stdout }}
           SLACK_TITLE: Post Title
           SLACK_CHANNEL: jobs
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
