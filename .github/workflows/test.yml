@@ -8,6 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+      - name: checkout repo content
+        uses: actions/checkout@v2 # checkout the repository content to github runner
+        
       - name: Run diff tests
         id: run_tests
         run: csv-diff jobs-scraper/apple/Apple-Careers-All-cp.csv jobs-scraper/apple/Apple-Careers-All.csv --key=id
