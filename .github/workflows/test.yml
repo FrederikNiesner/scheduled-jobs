@@ -1,4 +1,4 @@
-name: slack-notify
+name: test
 
 on:
   workflow_dispatch:
