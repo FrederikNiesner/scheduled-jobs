@@ -1,0 +1,16 @@
+name: slack-notify
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Run diff tests
+        id: run_tests
+        run: echo "csv-diff jobs-scraper/apple/Apple-Careers-All-cp.csv jobs-scraper/apple/Apple-Careers-All.csv --key=id" >> $GITHUB_OUTPUT
+      
+      - name: Get test
+        run: echo "The selected color is ${{ steps.run_tests.outputs }}"
