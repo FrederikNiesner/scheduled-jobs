@@ -10,7 +10,12 @@ jobs:
 
       - name: checkout repo content
         uses: actions/checkout@v2 # checkout the repository content to github runner
-        
+
+      - name: install python packages
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r jobs-scraper/apple/requirements.txt 
+
       - name: Run diff tests
         id: run_tests
         run: csv-diff jobs-scraper/apple/Apple-Careers-All-cp.csv jobs-scraper/apple/Apple-Careers-All.csv --key=id
