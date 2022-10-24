@@ -16,9 +16,16 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r jobs-scraper/apple/requirements.txt 
 
-      - name: Run diff tests
+      - name: Run diff tests # check if changes occurred
+        uses: mathiasvr/command-output@v1
         id: run_tests
-        run: var='csv-diff jobs-scraper/apple/Apple-Careers-All-cp.csv jobs-scraper/apple/Apple-Careers-All.csv --key=id' >> $GITHUB_OUTPUT
+        with:
+          run: csv-diff jobs-scraper/apple/Apple-Careers-All-cp.csv jobs-scraper/apple/Apple-Careers-All.csv --key=id
       
-      - name: Get test
-        run: echo "The selected color is ${{ steps.run_tests.outputs.var }}"
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_MESSAGE: ${{ steps.run_tests.outputs.stdout }}
+          SLACK_TITLE: Post Title
+          SLACK_CHANNEL: jobs
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
