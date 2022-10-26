@@ -17,13 +17,16 @@ jobs:
           pip install -r jobs-scraper/apple/requirements.txt 
 
       - name: Oli Run tests
-        run: echo "SLACK_MESSAGE='$(csv-diff jobs-scraper/apple/Apple-Careers-All-cp.csv jobs-scraper/apple/Apple-Careers-All.csv --key=id)'" >> $GITHUB_ENV
+        run: echo "SLACK_MESSAGE=$(csv-diff jobs-scraper/apple/Apple-Careers-All-cp.csv jobs-scraper/apple/Apple-Careers-All.csv --key=id)" >> $GITHUB_ENV
 
-      - name: Slack Notification
-        uses: rtCamp/action-slack-notify@v2
-        # if: ${{ steps.run_tests.outputs.stdout }} != ""
-        env:
-          SLACK_MESSAGE: $SLACK_MESSAGE
-          SLACK_TITLE: Post Title
-          SLACK_CHANNEL: jobs
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+      - name: Oli Run tests
+        run: echo $SLACK_MESSAGE
+
+      # - name: Slack Notification
+      #   uses: rtCamp/action-slack-notify@v2
+      #   # if: ${{ steps.run_tests.outputs.stdout }} != ""
+      #   env:
+      #     SLACK_MESSAGE: $SLACK_MESSAGE
+      #     SLACK_TITLE: Post Title
+      #     SLACK_CHANNEL: jobs
+      #     SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
