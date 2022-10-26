@@ -17,10 +17,10 @@ jobs:
           pip install -r jobs-scraper/apple/requirements.txt 
 
       - name: Oli Run tests
-        run: echo "SLACK_MESSAGE='$(/home/runner/.local/bin/csv-diff jobs-scraper/apple/Apple-Careers-All-cp.csv jobs-scraper/apple/Apple-Careers-All.csv --key=id)'" >> $GITHUB_OUTPUT
+        run: /home/runner/.local/bin/csv-diff jobs-scraper/apple/Apple-Careers-All-cp.csv jobs-scraper/apple/Apple-Careers-All.csv --key=id >> $HOME/slack.msg
 
       - name: Oli Run tests
-        run: echo $SLACK_MESSAGE
+        run: cat $HOME/slack.msg
 
       # - name: Slack Notification
       #   uses: rtCamp/action-slack-notify@v2
