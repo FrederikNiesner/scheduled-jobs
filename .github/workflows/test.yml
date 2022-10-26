@@ -17,7 +17,7 @@ jobs:
           pip install -r jobs-scraper/apple/requirements.txt 
 
       - name: Oli Run tests
-        run: echo "SLACK_MESSAGE=$(echo 'test')" >> $GITHUB_ENV
+        run: echo "SLACK_MESSAGE=$(which csv-diff)" >> $GITHUB_ENV
 
       - name: Oli Run tests
         run: echo $SLACK_MESSAGE
